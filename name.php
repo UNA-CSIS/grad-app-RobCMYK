@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    $first = $last = "";
+
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -13,7 +19,11 @@
         </form>
         
         <?php
-        // put your code here
+            $first = $_POST["first"];
+            $last = $_POST["last"];
+
+            $_SESSION["fname"] = $first;
+            $_SESSION["lname"] = $last;
         ?>
     </body>
 </html>

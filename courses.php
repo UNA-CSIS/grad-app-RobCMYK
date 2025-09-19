@@ -1,6 +1,8 @@
 <?php
 session_start();
-$first = $last = "";
+$numCourses = isset($_POST['courses']) ? count($_POST['courses']) : 0;
+$courses = isset($_POST['courses']) ? implode(", ", $_POST['courses']) : '';
+
 ?>
 
 <html>
@@ -11,8 +13,8 @@ $first = $last = "";
     <body>
         Welcome, <?php echo($first . " " . $last); ?>
         <form action="accomplishments.php" method="POST">
-            <input type="hidden" name="first" value="<?php echo htmlspecialchars($first); ?>">
-            <input type="hidden" name="last" value="<?php echo htmlspecialchars($last); ?>">
+            <!-- <input type="hidden" name="first" value="<?php echo htmlspecialchars($first); ?>">
+            <input type="hidden" name="last" value="<?php echo htmlspecialchars($last); ?>"> -->
             <fieldset>
             <legend>Select your courses:</legend>
             <label><input type="checkbox" name="courses[]" value="Object-oriented programming"> Object-oriented programming</label><br>
@@ -28,11 +30,11 @@ $first = $last = "";
         // store session data
         
 
-        $first = $_POST["first"];
-        $last = $_POST["last"];
+        // $first = $_POST["first"];
+        // $last = $_POST["last"];
 
-        $_SESSION["fname"] = $first;
-        $_SESSION["lname"] = $last;
+        // $_SESSION["fname"] = $first;
+        // $_SESSION["lname"] = $last;
         ?>
     </body>
 </html>
