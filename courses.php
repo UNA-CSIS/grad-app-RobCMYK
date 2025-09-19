@@ -1,12 +1,6 @@
 <?php
 session_start();
 $first = $last = "";
-
-$first = $_POST["first"];
-$last = $_POST["last"];
-
-$_SESSION["fname"] = $first;
-$_SESSION["lname"] = $last;
 ?>
 
 <html>
@@ -16,7 +10,7 @@ $_SESSION["lname"] = $last;
     </head>
     <body>
         Welcome, <?php echo($first . " " . $last); ?>
-        <form action="courses.php" method="POST">
+        <form action="accomplishments.php" method="POST">
             <input type="hidden" name="first" value="<?php echo htmlspecialchars($first); ?>">
             <input type="hidden" name="last" value="<?php echo htmlspecialchars($last); ?>">
             <fieldset>
@@ -31,7 +25,14 @@ $_SESSION["lname"] = $last;
         </form>
         
         <?php
-        // put your code here
+        // store session data
+        
+
+        $first = $_POST["first"];
+        $last = $_POST["last"];
+
+        $_SESSION["fname"] = $first;
+        $_SESSION["lname"] = $last;
         ?>
     </body>
 </html>
