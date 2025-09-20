@@ -1,7 +1,6 @@
 <?php
 session_start();
-$numCourses = isset($_POST['courses']) ? count($_POST['courses']) : 0;
-$courses = isset($_POST['courses']) ? implode(", ", $_POST['courses']) : '';
+
 
 ?>
 
@@ -28,8 +27,18 @@ $courses = isset($_POST['courses']) ? implode(", ", $_POST['courses']) : '';
         
         <?php
         // store session data
-        
+        $totalCourses = 5;
+        $takenCourses = 0;
+        function countSelectedCourses($courses) {
+            if (!is_array($courses)) {
+                return 0;
+            }
+            return count($courses);
+        }
+        $takenCourses = isset($_POST['courses']) ? countSelectedCourses($_POST['courses']) : 0;
 
+        $_SESSION["coursesTaken"] = $takenCourses;
+        $_SESSION["totalCourses"] = $totalCourses;
         // $first = $_POST["first"];
         // $last = $_POST["last"];
 
