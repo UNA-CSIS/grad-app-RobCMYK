@@ -1,7 +1,6 @@
 <?php
     session_start();
-    $first = $last = "";
-
+    
 ?>
 
 <!DOCTYPE html>
