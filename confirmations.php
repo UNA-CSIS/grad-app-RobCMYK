@@ -1,12 +1,13 @@
 <?php
 session_start();
 
+
 ?>
 
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Confirmation</title>
     </head>
     <body>
         

@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Name</title>
     </head>
     <body>
         <form action="courses.php" method="POST">

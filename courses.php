@@ -7,7 +7,7 @@ session_start();
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Courses</title>
     </head>
     <body>
         Welcome, <?php echo($first . " " . $last); ?>

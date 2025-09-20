@@ -1,12 +1,12 @@
 <?php
 session_start();
-$first = $last = "";
+$accomplishments = "";
 ?>
 
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Accomplishments</title>
     </head>
     <body>
         
@@ -20,7 +20,9 @@ $first = $last = "";
         
         <?php
         // store session data
-        
+        $accomplishments = $_POST["accomplishments"];
+        $_SESSION["accomplishments"] = $accomplishments;
+
 
         // $first = $_POST["first"];
         // $last = $_POST["last"];
