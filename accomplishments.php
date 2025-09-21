@@ -1,6 +1,14 @@
 <?php
-session_start();
-$accomplishments = "";
+    session_start();
+//    $_SESSION['fname'] = $_POST['fname'];
+//    $_SESSION['lname'] = $_POST['lname'];
+    $_SESSION['courses'] = $_POST['courses'];
+    $totalCourses = 5;
+    $takenCourses = is_array($_POST['courses']) ? count($_POST['courses']) : 0;
+
+    $_SESSION["takenCourses"] = $takenCourses;
+    $_SESSION["totalCourses"] = $totalCourses;
+
 ?>
 
 <html>
@@ -11,24 +19,9 @@ $accomplishments = "";
     <body>
         
         <form action="confirmations.php" method="POST">
-            <input type="hidden" name="first" value="<?php echo htmlspecialchars($first); ?>">
-            <input type="hidden" name="last" value="<?php echo htmlspecialchars($last); ?>">
-            <label for="accomplishments">Describe your personal accomplishments:</label><br>
+            <label>Describe your personal accomplishments</label>
             <textarea id="accomplishments" name="accomplishments" rows="8" cols="60"></textarea><br>
             <input type="submit" value="Submit">
         </form>
-        
-        <?php
-        // store session data
-        $accomplishments = $_POST["accomplishments"];
-        $_SESSION["accomplishments"] = $accomplishments;
-
-
-        // $first = $_POST["first"];
-        // $last = $_POST["last"];
-
-        // $_SESSION["fname"] = $first;
-        // $_SESSION["lname"] = $last;
-        ?>
     </body>
 </html>

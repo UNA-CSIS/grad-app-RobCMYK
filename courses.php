@@ -1,20 +1,23 @@
 <?php
-session_start();
-
+    session_start();
+    
+    $_SESSION['fname'] = $_POST['fname'];
+    $_SESSION['lname']  = $_POST['lname'];
 ?>
 
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Courses</title>
     </head>
     <body>
-        Welcome, <?php echo($first . " " . $last); ?>
+        <h1>Welcome, <?php echo $_SESSION['fname'] . " " . $_SESSION['lname']; ?></h1>
         <form action="accomplishments.php" method="POST">
-            <!-- <input type="hidden" name="first" value="<?php echo htmlspecialchars($first); ?>">
-            <input type="hidden" name="last" value="<?php echo htmlspecialchars($last); ?>"> -->
             <fieldset>
             <legend>Select your courses:</legend>
+            <input type="hidden" name="fname" value="<?php echo htmlspecialchars($_SESSION['fname']); ?>">
+            <input type="hidden" name="lname" value="<?php echo htmlspecialchars($_SESSION['lname']); ?>">
             <label><input type="checkbox" name="courses[]" value="Object-oriented programming"> Object-oriented programming</label><br>
             <label><input type="checkbox" name="courses[]" value="Systems analysis & design"> Systems analysis & design</label><br>
             <label><input type="checkbox" name="courses[]" value="Advanced programming"> Advanced programming</label><br>
@@ -23,26 +26,6 @@ session_start();
             </fieldset>
             <input type="submit" value="Submit">
         </form>
-        
-        <?php
-        // store session data
-        $totalCourses = 5;
-        $takenCourses = 0;
-        function countSelectedCourses($courses) {
-            if (!is_array($courses)) {
-                return 0;
-            }
-            return count($courses);
-        }
-        $takenCourses = isset($_POST['courses']) ? countSelectedCourses($_POST['courses']) : 0;
 
-        $_SESSION["coursesTaken"] = $takenCourses;
-        $_SESSION["totalCourses"] = $totalCourses;
-        // $first = $_POST["first"];
-        // $last = $_POST["last"];
-
-        // $_SESSION["fname"] = $first;
-        // $_SESSION["lname"] = $last;
-        ?>
     </body>
-</html>
+</html>    
